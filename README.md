@@ -1,23 +1,12 @@
 # YM-DL — YouTube Music desktop downloader (beta)
 
-A native desktop GUI for downloading YouTube Music albums and playlists as tagged audio files. Windows is the packaging target; the Python source also runs on Linux and macOS.
-
-A simple, light interface with square controls; ordered URL queues; optional source codec/bitrate previews; a small artwork panel; original audio or converted formats; automatic retries; album-only folders; and editable YouTube Music metadata. YM-DL is an independent project and is not affiliated with YouTube or Google.
-
-## Windows: build once, then use the executable
-
-1. Install **64-bit Python 3.11 or newer** from https://www.python.org/downloads/windows/ if you do not have it. Enable the Python launcher during installation. Python 3.12 or 3.13 is recommended.
-2. Extract this ZIP into a folder, for example `Downloads\YM-DL`. Do not run it inside the ZIP.
-3. Double-click **Build-Windows.cmd**. The first build needs internet and may take several minutes. It creates a local Python environment, installs dependencies, downloads verified Node.js LTS and matching dependency sources, bundles the supplied FFmpeg audio build, builds the app and checks its interface, worker and all output codecs. It creates a Windows release ZIP, a companion Sources ZIP and checksums in `dist`.
-4. Open **dist\YM-DL.exe**. Python, FFmpeg and Node.js do not need to be installed on computers that run this built executable.
-
-This package contains source and a build script, **not a prebuilt Windows executable**. The app was developed and tested on Linux; the Windows build must be run and verified on Windows. The executable is unsigned. Keep the source folder so you can rebuild when YouTube changes.
+A native desktop GUI for downloading YouTube Music albums and playlists as tagged audio files.
 
 ## Downloading music
 
 1. In YouTube Music, use **Share** on an album or saved playlist and copy its link.
-2. Paste it in YM-DL. A valid link loads automatically after a brief pause and displays its cover in the **small artwork panel on the right** of the main window. You can also click **Load playlist** or press Enter. The panel follows the current album during downloads, including playlists containing several albums; it does not open a separate window.
-3. Review the tracks. Bitrate checks are **optional**: check the boxes beside the tracks you want to inspect, then click **Check quality**. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. Double-click title, artist, album or track cells to edit; **Extra tags** reveals disc, album artist and date. Unavailable tracks stay visible and cannot be selected.
+2. Paste it in YM-DL.
+3. Review the tracks. Bitrate checks are optional: check the boxes beside the tracks you want to inspect, then click Check quality. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. 
 4. Choose a destination folder. Leave **Audio format** at **Original (best available)**, or choose Opus, AAC/M4A, MP3, FLAC or WAV. For Opus, AAC and MP3, choose a target bitrate from the **Bitrate** selector.
 5. Click **Download selected**. Your format and bitrate preference is remembered for the next session.
 
@@ -28,10 +17,6 @@ Files are organized as `Album / 01 - Title.opus` or `.m4a`. There is no artist f
 Choose your destination, audio format and optional cookies first. Click **Queue URLs…**, paste one public album or playlist URL per line, then click **Start queue**. The app processes them in the pasted order: load metadata, then download available tracks. Separate bitrate scans are off by default; enable **Check source quality before each album (slower)** in the queue dialog if wanted. The table and artwork panel follow the current album. Queue mode starts downloads automatically; use the normal **Load playlist** flow when you want to edit tags, choose individual tracks or review quality before starting.
 
 **Queue order** lists every pasted URL immediately, with album/playlist names appearing as they load. Each entry shows progress and a colored box: green for Complete, yellow while Loading/Checking/Downloading, red for Failed/Skipped or Paused after an error, and gray for Waiting/Cancelled. The current URL is highlighted. You can open the dropdown and scroll the track list during downloads; metadata editing and track checkboxes remain locked until the job finishes.
-
-When a track still fails after its automatic retries, the queue **pauses** and opens an error alert with **Try again**, **Skip** and **Cancel**. Try again gives the failed track a fresh set of attempts; Skip leaves it failed and moves on; Cancel stops the queue and keeps completed downloads. A failed album/playlist lookup also pauses with these choices. Closing the alert cancels. Optional quality-preview failures are shown as unverified sources; the actual download still gets its normal retries and pause-on-error handling.
-
-The app removes `.ym-dl-work` and `.ym-dl-history.json` **after each album finishes**, including when failed tracks are explicitly skipped. In a playlist with interleaved albums, cleanup happens after the last selected track from that album. Audio files contain an internal completion marker so repeats still skip matching completed files without a JSON sidecar. Cancellation retains temporary files for unfinished albums for resumption. Music, artwork and unrelated files are preserved; cleanup failures are logged. Legacy Musicbox temporary items and completion tags remain supported.
 
 ## Audio and metadata behavior
 
