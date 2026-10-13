@@ -21,17 +21,13 @@ This package contains source and a build script, **not a prebuilt Windows execut
 4. Choose a destination folder. Leave **Audio format** at **Original (best available)**, or choose Opus, AAC/M4A, MP3, FLAC or WAV. For Opus, AAC and MP3, choose a target bitrate from the **Bitrate** selector.
 5. Click **Download selected**. Your format and bitrate preference is remembered for the next session.
 
-Files are organized as `Album / 01 - Title.opus` or `.m4a`. There is no artist folder. Multi-disc releases stay in the same album folder and use names such as `02-01 - Title.opus` (disc 2, track 1). An album cover is embedded and also saved as `cover.jpg` when available. Filenames are sanitized for Windows. Existing files are preserved; naming collisions get an extra suffix. Older folders are not moved automatically.
+Files are organized as `Album / 01 - Title.opus` or `.m4a`. Multi-disc releases stay in the same album folder and use names such as `02-01 - Title.opus` (disc 2, track 1). An album cover is embedded and also saved as `cover.jpg` when available.
 
 ## Download a queue
 
 Choose your destination, audio format and optional cookies first. Click **Queue URLs…**, paste one public album or playlist URL per line, then click **Start queue**. The app processes them in the pasted order: load metadata, then download available tracks. Separate bitrate scans are off by default; enable **Check source quality before each album (slower)** in the queue dialog if wanted. The table and artwork panel follow the current album. Queue mode starts downloads automatically; use the normal **Load playlist** flow when you want to edit tags, choose individual tracks or review quality before starting.
 
 **Queue order** lists every pasted URL immediately, with album/playlist names appearing as they load. Each entry shows progress and a colored box: green for Complete, yellow while Loading/Checking/Downloading, red for Failed/Skipped or Paused after an error, and gray for Waiting/Cancelled. The current URL is highlighted. You can open the dropdown and scroll the track list during downloads; metadata editing and track checkboxes remain locked until the job finishes.
-
-When a track still fails after its automatic retries, the queue **pauses** and opens an error alert with **Try again**, **Skip** and **Cancel**. Try again gives the failed track a fresh set of attempts; Skip leaves it failed and moves on; Cancel stops the queue and keeps completed downloads. A failed album/playlist lookup also pauses with these choices. Closing the alert cancels. Optional quality-preview failures are shown as unverified sources; the actual download still gets its normal retries and pause-on-error handling.
-
-The app removes `.ym-dl-work` and `.ym-dl-history.json` **after each album finishes**, including when failed tracks are explicitly skipped. In a playlist with interleaved albums, cleanup happens after the last selected track from that album. Audio files contain an internal completion marker so repeats still skip matching completed files without a JSON sidecar. Cancellation retains temporary files for unfinished albums for resumption. Music, artwork and unrelated files are preserved; cleanup failures are logged. Legacy Musicbox temporary items and completion tags remain supported.
 
 ## Audio and metadata behavior
 
