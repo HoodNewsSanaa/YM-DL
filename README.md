@@ -16,8 +16,8 @@ This package contains source and a build script, **not a prebuilt Windows execut
 ## Downloading music
 
 1. In YouTube Music, use **Share** on an album or saved playlist and copy its link.
-2. Paste it in YM-DL. A valid link loads automatically after a brief pause and displays its cover in the **small artwork panel on the right** of the main window. You can also click **Load playlist** or press Enter. The panel follows the current album during downloads, including playlists containing several albums; it does not open a separate window.
-3. Review the tracks. Bitrate checks are **optional**: check the boxes beside the tracks you want to inspect, then click **Check quality**. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. Double-click title, artist, album or track cells to edit; **Extra tags** reveals disc, album artist and date. Unavailable tracks stay visible and cannot be selected.
+2. Paste it in YM-DL. A valid link loads automatically after a brief pause and displays its cover in the **small artwork panel on the right** of the main window. You can also click **Load playlist** or press Enter.
+3. Review the tracks. Bitrate checks are **optional**: check the boxes beside the tracks you want to inspect, then click **Check quality**. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. Double-click title, artist, album or track cells to edit; 
 4. Choose a destination folder. Leave **Audio format** at **Original (best available)**, or choose Opus, AAC/M4A, MP3, FLAC or WAV. For Opus, AAC and MP3, choose a target bitrate from the **Bitrate** selector.
 5. Click **Download selected**. Your format and bitrate preference is remembered for the next session.
 
