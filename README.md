@@ -108,8 +108,6 @@ Tests use local generated audio and fake API responses, without downloading copy
 
 ## Distribution
 
-The supplied `assets/Logo.pixil` is retained unchanged; its active frame is exported as `logo.png` and a multi-size Windows `.ico` without changing the artwork. Previous Musicbox settings are imported once into YM-DL, preserving the selected destination, cookies path and audio preferences.
-
 Queues reuse a bounded metadata cache and one metadata API session, share downloaded cover bytes, and refresh only the affected audio-quality row. Image requests stay asynchronous so cover loading cannot stall the queue.
 
 This project uses GPL-licensed Mutagen and bundled FFmpeg components. Before distributing a compiled executable publicly, provide the applicable dependency license notices and satisfy source-availability obligations for the actual FFmpeg build and other dependencies. The build writes dependency versions and hashes to `dist` for reference. This initial package is intended for local building and personal use.
