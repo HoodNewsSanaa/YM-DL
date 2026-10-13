@@ -1,0 +1,42 @@
+[
+  {
+    "file": "qt-sources/qtbase-6.12.0.tar.gz",
+    "url": "https://github.com/qt/qtbase/archive/refs/tags/v6.12.0.tar.gz",
+    "sha256": "dff6570582c272cbe744d2e460700318262af505460f4215276459970ae31b46",
+    "bytes": 68693288,
+    "notices": 128,
+    "version": "v6.12.0"
+  },
+  {
+    "file": "qt-sources/qtsvg-6.12.0.tar.gz",
+    "url": "https://github.com/qt/qtsvg/archive/refs/tags/v6.12.0.tar.gz",
+    "sha256": "38d440c4e97c90ce4f5b76c65dcd63d716d2ef4852baa6fb0926fb94bb96ea66",
+    "bytes": 2629493,
+    "notices": 2,
+    "version": "v6.12.0"
+  },
+  {
+    "file": "qt-sources/qtimageformats-6.12.0.tar.gz",
+    "url": "https://github.com/qt/qtimageformats/archive/refs/tags/v6.12.0.tar.gz",
+    "sha256": "9848d06aa4453cf583dc6ec4ec148ade05f3981c0f91b0961297385d3297b02a",
+    "bytes": 2362884,
+    "notices": 7,
+    "version": "v6.12.0"
+  },
+  {
+    "file": "qt-sources/qtshadertools-6.12.0.tar.gz",
+    "url": "https://github.com/qt/qtshadertools/archive/refs/tags/v6.12.0.tar.gz",
+    "sha256": "ced35453e0420193c345019ee8952af018fbab3fe04cf991a778fb8537907e86",
+    "bytes": 1884799,
+    "notices": 9,
+    "version": "v6.12.0"
+  },
+  {
+    "file": "qt-sources/pyside-setup-6.12.0.tar.gz",
+    "url": "https://github.com/pyside/pyside-setup/archive/refs/tags/v6.12.0.tar.gz",
+    "sha256": "dce2a944b34320e51a0ec8100cb983956399b97dec386f0fbe39e1b52571a336",
+    "bytes": 21214682,
+    "notices": 12,
+    "version": "v6.12.0"
+  }
+]

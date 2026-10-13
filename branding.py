@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 
 APP_NAME = "YM-DL"
-VERSION = "0.4.0-beta.1"
+VERSION = "0.4.0-beta.2"
 
 
 def asset_path(name):

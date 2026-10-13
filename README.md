@@ -8,26 +8,30 @@ A simple, light interface with square controls; ordered URL queues; optional sou
 
 1. Install **64-bit Python 3.11 or newer** from https://www.python.org/downloads/windows/ if you do not have it. Enable the Python launcher during installation. Python 3.12 or 3.13 is recommended.
 2. Extract this ZIP into a folder, for example `Downloads\YM-DL`. Do not run it inside the ZIP.
-3. Double-click **Build-Windows.cmd**. The first build needs internet and may take several minutes. It creates a local Python environment, installs dependencies, downloads the official Deno runtime, bundles FFmpeg, builds the app and checks the packaged interface and worker.
-4. Open **dist\YM-DL.exe**. Python, FFmpeg and Deno do not need to be installed on computers that run this built executable.
+3. Double-click **Build-Windows.cmd**. The first build needs internet and may take several minutes. It creates a local Python environment, installs dependencies, downloads verified Node.js LTS and matching dependency sources, bundles the supplied FFmpeg audio build, builds the app and checks its interface, worker and all output codecs. It creates a Windows release ZIP, a companion Sources ZIP and checksums in `dist`.
+4. Open **dist\YM-DL.exe**. Python, FFmpeg and Node.js do not need to be installed on computers that run this built executable.
 
 This package contains source and a build script, **not a prebuilt Windows executable**. The app was developed and tested on Linux; the Windows build must be run and verified on Windows. The executable is unsigned. Keep the source folder so you can rebuild when YouTube changes.
 
 ## Downloading music
 
 1. In YouTube Music, use **Share** on an album or saved playlist and copy its link.
-2. Paste it in YM-DL. A valid link loads automatically after a brief pause and displays its cover in the **small artwork panel on the right** of the main window. You can also click **Load playlist** or press Enter.
-3. Review the tracks. Bitrate checks are **optional**: check the boxes beside the tracks you want to inspect, then click **Check quality**. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. Double-click title, artist, album or track cells to edit; 
+2. Paste it in YM-DL. A valid link loads automatically after a brief pause and displays its cover in the **small artwork panel on the right** of the main window. You can also click **Load playlist** or press Enter. The panel follows the current album during downloads, including playlists containing several albums; it does not open a separate window.
+3. Review the tracks. Bitrate checks are **optional**: check the boxes beside the tracks you want to inspect, then click **Check quality**. Source information appears in **Source audio** and **Output audio** without downloading the audio file. Loading an album or clicking Download does not run a separate quality scan; source information fills in as each download begins. Double-click title, artist, album or track cells to edit; **Extra tags** reveals disc, album artist and date. Unavailable tracks stay visible and cannot be selected.
 4. Choose a destination folder. Leave **Audio format** at **Original (best available)**, or choose Opus, AAC/M4A, MP3, FLAC or WAV. For Opus, AAC and MP3, choose a target bitrate from the **Bitrate** selector.
 5. Click **Download selected**. Your format and bitrate preference is remembered for the next session.
 
-Files are organized as `Album / 01 - Title.opus` or `.m4a`. Multi-disc releases stay in the same album folder and use names such as `02-01 - Title.opus` (disc 2, track 1). An album cover is embedded and also saved as `cover.jpg` when available.
+Files are organized as `Album / 01 - Title.opus` or `.m4a`. There is no artist folder. Multi-disc releases stay in the same album folder and use names such as `02-01 - Title.opus` (disc 2, track 1). An album cover is embedded and also saved as `cover.jpg` when available. Filenames are sanitized for Windows. Existing files are preserved; naming collisions get an extra suffix. Older folders are not moved automatically.
 
 ## Download a queue
 
 Choose your destination, audio format and optional cookies first. Click **Queue URLs…**, paste one public album or playlist URL per line, then click **Start queue**. The app processes them in the pasted order: load metadata, then download available tracks. Separate bitrate scans are off by default; enable **Check source quality before each album (slower)** in the queue dialog if wanted. The table and artwork panel follow the current album. Queue mode starts downloads automatically; use the normal **Load playlist** flow when you want to edit tags, choose individual tracks or review quality before starting.
 
 **Queue order** lists every pasted URL immediately, with album/playlist names appearing as they load. Each entry shows progress and a colored box: green for Complete, yellow while Loading/Checking/Downloading, red for Failed/Skipped or Paused after an error, and gray for Waiting/Cancelled. The current URL is highlighted. You can open the dropdown and scroll the track list during downloads; metadata editing and track checkboxes remain locked until the job finishes.
+
+When a track still fails after its automatic retries, the queue **pauses** and opens an error alert with **Try again**, **Skip** and **Cancel**. Try again gives the failed track a fresh set of attempts; Skip leaves it failed and moves on; Cancel stops the queue and keeps completed downloads. A failed album/playlist lookup also pauses with these choices. Closing the alert cancels. Optional quality-preview failures are shown as unverified sources; the actual download still gets its normal retries and pause-on-error handling.
+
+The app removes `.ym-dl-work` and `.ym-dl-history.json` **after each album finishes**, including when failed tracks are explicitly skipped. In a playlist with interleaved albums, cleanup happens after the last selected track from that album. Audio files contain an internal completion marker so repeats still skip matching completed files without a JSON sidecar. Cancellation retains temporary files for unfinished albums for resumption. Music, artwork and unrelated files are preserved; cleanup failures are logged. Legacy Musicbox temporary items and completion tags remain supported.
 
 ## Audio and metadata behavior
 
@@ -61,7 +65,7 @@ Account-access reference: https://github.com/yt-dlp/yt-dlp/wiki/Extractors#loggi
 
 ## Updates and troubleshooting
 
-YouTube changes regularly. If downloads fail, run **Build-Windows.cmd** again to refresh yt-dlp and rebuild. Use a fresh cookies file if YouTube explicitly requires sign-in. The app does not bypass age restrictions, region restrictions or DRM. If Deno is already present in `tools`, the build reuses it; remove `tools\deno.exe` before rebuilding to refresh the runtime too.
+YouTube changes regularly. If downloads fail, check for a new YM-DL release with updated yt-dlp, or update the dependency pins and rebuild. Use a fresh cookies file if YouTube explicitly requires sign-in. The app does not bypass age restrictions, region restrictions or DRM. Release dependencies are pinned; update them deliberately in `requirements-release.txt` for a new release instead of silently changing the bundled versions.
 
 If an album preview fails, make sure the album or playlist is public, the link contains `list=`, and the network can reach YouTube Music. There is no silent metadata guessing fallback.
 
@@ -73,12 +77,12 @@ python -m venv .venv
 .venv\Scripts\python.exe app.py
 ```
 
-Source-mode downloads need Deno or Node.js on PATH, or `tools/deno.exe`. FFmpeg comes from imageio-ffmpeg. On Linux/macOS activate the virtual environment and run `python app.py`; Qt may need your system's desktop libraries. This is a local app: no hosted service or API keys.
+Source-mode downloads need Node.js LTS or Deno on PATH, or a runtime in `tools/`. Install FFmpeg on PATH for source mode. The optional development dependency imageio-ffmpeg can provide a fallback, and is excluded from the release executable. On Linux/macOS activate the virtual environment and run `python app.py`; Qt may need your system's desktop libraries. This is a local app: no hosted service or API keys.
 
 ## Tests
 
 ```powershell
-.venv\Scripts\python.exe -m pip install pytest
+.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 .venv\Scripts\python.exe -m pytest -q
 ```
 
@@ -103,13 +107,16 @@ Tests use local generated audio and fake API responses, without downloading copy
 - YouTube Music API: https://ytmusicapi.readthedocs.io/en/stable/reference/browsing.html
 - Mutagen: https://mutagen.readthedocs.io/
 - PyInstaller: https://pyinstaller.org/en/stable/
-- Deno releases: https://github.com/denoland/deno/releases
-- FFmpeg bundled by imageio-ffmpeg: https://github.com/imageio/imageio-ffmpeg
+- Node.js LTS releases: https://nodejs.org/dist/
+- FFmpeg source: https://ffmpeg.org/download.html
+- Release packaging inputs and source provenance: `RELEASE-BUILD.md`
 
 ## Distribution
 
+The supplied `assets/Logo.pixil` is retained unchanged; its active frame is exported as `logo.png` and a multi-size Windows `.ico` without changing the artwork. Previous Musicbox settings are imported once into YM-DL, preserving the selected destination, cookies path and audio preferences.
+
 Queues reuse a bounded metadata cache and one metadata API session, share downloaded cover bytes, and refresh only the affected audio-quality row. Image requests stay asynchronous so cover loading cannot stall the queue.
 
-This project uses GPL-licensed Mutagen and bundled FFmpeg components. Before distributing a compiled executable publicly, provide the applicable dependency license notices and satisfy source-availability obligations for the actual FFmpeg build and other dependencies. The build writes dependency versions and hashes to `dist` for reference. This initial package is intended for local building and personal use.
+YM-DL uses GNU GPLv3; see `LICENSE`. Dependencies retain their own licenses. The release build preserves the actual installed package notices, the official Node archive's full license, Qt attribution files, and the FFmpeg/LAME/Opus license texts. It also creates a source archive with the exact app files, FFmpeg/library source and recipe, Qt/PySide source archives, and Mutagen/certifi source archives. Publish both ZIPs and their checksum file together.
 
-See **PUBLISHING.md** for GitHub setup and beta-release instructions. A project license has not yet been selected; choose one before presenting the project as open source.
+The `.exe` remains self-contained for running. The download ZIP keeps notices beside it for distribution. See **RELEASE-BUILD.md** for build details and **PUBLISHING.md** for the existing GitHub repository and beta-release steps.

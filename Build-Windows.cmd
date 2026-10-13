@@ -13,12 +13,12 @@ if not exist ".venv\Scripts\python.exe" %YM_DL_PYTHON% -m venv .venv
 if errorlevel 1 goto failed
 ".venv\Scripts\python.exe" -m pip install --upgrade pip
 if errorlevel 1 goto failed
-".venv\Scripts\python.exe" -m pip install --upgrade -r requirements.txt pyinstaller
+".venv\Scripts\python.exe" -m pip install -r requirements-release.txt
 if errorlevel 1 goto failed
 ".venv\Scripts\python.exe" build_windows.py
 if errorlevel 1 goto failed
 echo.
-echo Finished. Your executable is in the dist folder: YM-DL.exe
+echo Finished. The dist folder contains the Windows release ZIP, Sources ZIP and checksums.
 start "" explorer.exe "%~dp0dist"
 pause
 exit /b 0

@@ -1,0 +1,604 @@
+checking whether make supports nested variables... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-w64-mingw32-strip... no
+checking for strip... strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-w64-mingw32
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for x86_64-w64-mingw32-gcc... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.exe
+checking for suffix of executables... .exe
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc accepts -g... yes
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc option to enable C11 features... none needed
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc understands -c and -o together... yes
+checking dependency style of /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld
+checking if the linker (/workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... no
+checking for x86_64-w64-mingw32-dumpbin... no
+checking for x86_64-w64-mingw32-link... no
+checking for dumpbin... no
+checking for link... link -dump
+configure: WARNING: using cross tools not prefixed with host triplet
+checking the name lister (nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-w64-mingw32 format... func_convert_file_nix_to_w32
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld option to reload object files... -r
+checking for x86_64-w64-mingw32-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for x86_64-w64-mingw32-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... func_cygming_dll_for_implib_fallback
+checking for x86_64-w64-mingw32-ar... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-ar
+checking for archiver @FILE support... @
+checking for x86_64-w64-mingw32-strip... strip
+checking for x86_64-w64-mingw32-ranlib... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-ranlib
+checking command to parse nm output from /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for x86_64-w64-mingw32-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... no
+checking for objdir... .libs
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -fno-rtti -fno-exceptions... no
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc static flag -static works... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -c -o file.o... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -c -o file.o... (cached) yes
+checking whether the /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc linker (/workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking dependency style of /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... gcc3
+checking for C/C++ restrict keyword... __restrict
+checking for C99 variable-size arrays... yes
+checking for cos in -lm... yes
+checking how to run the C preprocessor... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -E
+checking if compiler supports SSE intrinsics... yes
+checking if compiler supports SSE2 intrinsics... yes
+checking if compiler supports SSE4.1 intrinsics... no
+checking if compiler supports SSE4.1 intrinsics with -msse4.1... yes
+checking if compiler supports AVX2 intrinsics... no
+checking if compiler supports AVX2 intrinsics with -mavx -mfma -mavx2... yes
+checking How to get X86 CPU Info... Inline Assembly
+checking argument osce training data... no
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -fvisibility=hidden... yes
+checking whether to add -D_FORTIFY_SOURCE=2 to CFLAGS... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes... yes
+checking for lrintf... yes
+checking for lrint... yes
+checking for __malloc_hook... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating opus.pc
+config.status: creating opus-uninstalled.pc
+config.status: creating celt/arm/armopts.s
+config.status: creating doc/Makefile
+config.status: creating doc/Doxyfile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure:
+------------------------------------------------------------------------
+  opus 1.5.2:  Automatic configuration OK.
+
+    Compiler support:
+
+      C99 var arrays: ................ yes
+      C99 lrintf: .................... yes
+      Use alloca: .................... no (using var arrays)
+
+    General configuration:
+
+      Floating point support: ........ yes
+      Fast float approximations: ..... yes
+      Fixed point debugging: ......... no
+      Inline Assembly Optimizations: . No inline ASM for your platform, please send patches
+      External Assembly Optimizations: 
+      Intrinsics Optimizations: ...... x86 SSE SSE2 SSE4.1 AVX2
+      Run-time CPU detection: ........ x86 SSE4.1 AVX2
+      Custom modes: .................. no
+      Assertion checking: ............ no
+      Hardening: ..................... yes
+      Fuzzing: ....................... no
+      Check ASM: ..................... no
+
+      API documentation: ............. no
+      Extra programs: ................ no
+------------------------------------------------------------------------
+
+ Type "make; make install" to compile and install
+ Type "make check" to run the test suite
+
+make  all-recursive
+make[1]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[2]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+  CC       celt/bands.lo
+  CC       celt/celt.lo
+make[3]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+  CC       celt/celt_encoder.lo
+  CC       celt/celt_decoder.lo
+  CC       celt/cwrs.lo
+  CC       celt/entcode.lo
+  CC       celt/entdec.lo
+  CC       celt/entenc.lo
+  CC       celt/kiss_fft.lo
+  CC       celt/mathops.lo
+  CC       celt/laplace.lo
+  CC       celt/mdct.lo
+  CC       celt/modes.lo
+  CC       celt/pitch.lo
+  CC       celt/celt_lpc.lo
+  CC       celt/quant_bands.lo
+  CC       celt/rate.lo
+  CC       celt/vq.lo
+  CC       celt/x86/x86cpu.lo
+  CC       celt/x86/x86_celt_map.lo
+  CC       celt/x86/pitch_sse.lo
+  CC       celt/x86/pitch_sse2.lo
+  CC       celt/x86/vq_sse2.lo
+  CC       celt/x86/celt_lpc_sse4_1.lo
+  CC       celt/x86/pitch_sse4_1.lo
+  CC       celt/x86/pitch_avx.lo
+  CC       silk/CNG.lo
+  CC       silk/code_signs.lo
+  CC       silk/init_decoder.lo
+  CC       silk/decode_core.lo
+  CC       silk/decode_frame.lo
+  CC       silk/decode_parameters.lo
+  CC       silk/decode_indices.lo
+  CC       silk/decode_pulses.lo
+  CC       silk/decoder_set_fs.lo
+  CC       silk/dec_API.lo
+  CC       silk/enc_API.lo
+  CC       silk/encode_indices.lo
+  CC       silk/encode_pulses.lo
+  CC       silk/gain_quant.lo
+  CC       silk/interpolate.lo
+  CC       silk/LP_variable_cutoff.lo
+  CC       silk/NLSF_decode.lo
+  CC       silk/NSQ.lo
+  CC       silk/NSQ_del_dec.lo
+  CC       silk/PLC.lo
+  CC       silk/shell_coder.lo
+  CC       silk/tables_gain.lo
+  CC       silk/tables_LTP.lo
+  CC       silk/tables_NLSF_CB_NB_MB.lo
+  CC       silk/tables_NLSF_CB_WB.lo
+  CC       silk/tables_other.lo
+  CC       silk/tables_pitch_lag.lo
+  CC       silk/tables_pulses_per_block.lo
+  CC       silk/VAD.lo
+  CC       silk/control_audio_bandwidth.lo
+  CC       silk/quant_LTP_gains.lo
+  CC       silk/VQ_WMat_EC.lo
+  CC       silk/HP_variable_cutoff.lo
+  CC       silk/NLSF_encode.lo
+  CC       silk/NLSF_VQ.lo
+  CC       silk/NLSF_unpack.lo
+  CC       silk/NLSF_del_dec_quant.lo
+  CC       silk/process_NLSFs.lo
+  CC       silk/stereo_LR_to_MS.lo
+  CC       silk/stereo_MS_to_LR.lo
+  CC       silk/check_control_input.lo
+  CC       silk/control_SNR.lo
+  CC       silk/init_encoder.lo
+  CC       silk/control_codec.lo
+  CC       silk/A2NLSF.lo
+  CC       silk/ana_filt_bank_1.lo
+  CC       silk/biquad_alt.lo
+  CC       silk/bwexpander_32.lo
+  CC       silk/bwexpander.lo
+  CC       silk/debug.lo
+  CC       silk/decode_pitch.lo
+  CC       silk/inner_prod_aligned.lo
+  CC       silk/lin2log.lo
+  CC       silk/log2lin.lo
+  CC       silk/LPC_analysis_filter.lo
+  CC       silk/LPC_inv_pred_gain.lo
+  CC       silk/table_LSF_cos.lo
+  CC       silk/NLSF2A.lo
+  CC       silk/NLSF_stabilize.lo
+  CC       silk/NLSF_VQ_weights_laroia.lo
+  CC       silk/pitch_est_tables.lo
+  CC       silk/resampler.lo
+  CC       silk/resampler_down2_3.lo
+  CC       silk/resampler_down2.lo
+  CC       silk/resampler_private_AR2.lo
+  CC       silk/resampler_private_down_FIR.lo
+  CC       silk/resampler_private_IIR_FIR.lo
+  CC       silk/resampler_private_up2_HQ.lo
+  CC       silk/resampler_rom.lo
+  CC       silk/sigm_Q15.lo
+  CC       silk/sort.lo
+  CC       silk/sum_sqr_shift.lo
+  CC       silk/stereo_decode_pred.lo
+  CC       silk/stereo_encode_pred.lo
+  CC       silk/stereo_find_predictor.lo
+  CC       silk/stereo_quant_pred.lo
+  CC       silk/LPC_fit.lo
+  CC       silk/float/apply_sine_window_FLP.lo
+  CC       silk/float/corrMatrix_FLP.lo
+  CC       silk/float/find_LPC_FLP.lo
+  CC       silk/float/encode_frame_FLP.lo
+  CC       silk/float/find_LTP_FLP.lo
+  CC       silk/float/find_pitch_lags_FLP.lo
+  CC       silk/float/find_pred_coefs_FLP.lo
+  CC       silk/float/LPC_analysis_filter_FLP.lo
+  CC       silk/float/LTP_analysis_filter_FLP.lo
+  CC       silk/float/LTP_scale_ctrl_FLP.lo
+  CC       silk/float/noise_shape_analysis_FLP.lo
+  CC       silk/float/process_gains_FLP.lo
+  CC       silk/float/regularize_correlations_FLP.lo
+  CC       silk/float/residual_energy_FLP.lo
+  CC       silk/float/warped_autocorrelation_FLP.lo
+  CC       silk/float/wrappers_FLP.lo
+  CC       silk/float/autocorrelation_FLP.lo
+  CC       silk/float/burg_modified_FLP.lo
+  CC       silk/float/bwexpander_FLP.lo
+  CC       silk/float/energy_FLP.lo
+  CC       silk/float/inner_product_FLP.lo
+  CC       silk/float/k2a_FLP.lo
+  CC       silk/float/LPC_inv_pred_gain_FLP.lo
+  CC       silk/float/pitch_analysis_core_FLP.lo
+  CC       silk/float/scale_copy_vector_FLP.lo
+  CC       silk/float/scale_vector_FLP.lo
+  CC       silk/float/schur_FLP.lo
+  CC       silk/float/sort_FLP.lo
+  CC       silk/x86/NSQ_sse4_1.lo
+  CC       silk/x86/NSQ_del_dec_sse4_1.lo
+  CC       silk/x86/VAD_sse4_1.lo
+  CC       silk/x86/VQ_WMat_EC_sse4_1.lo
+  CC       silk/float/x86/inner_product_FLP_avx2.lo
+  CC       silk/x86/x86_silk_map.lo
+  CC       silk/x86/NSQ_del_dec_avx2.lo
+  CC       src/opus.lo
+  CC       src/opus_decoder.lo
+  CC       src/opus_encoder.lo
+  CC       src/extensions.lo
+  CC       src/opus_multistream.lo
+  CC       src/opus_multistream_encoder.lo
+  CC       src/opus_multistream_decoder.lo
+  CC       src/repacketizer.lo
+  CC       src/opus_projection_encoder.lo
+  CC       src/opus_projection_decoder.lo
+  CC       src/mapping_matrix.lo
+  CC       src/analysis.lo
+  CC       src/mlp.lo
+  CC       src/mlp_data.lo
+  CCLD     libopus.la
+make[2]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[1]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make  install-recursive
+make[1]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[2]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[3]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[3]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+ /usr/bin/mkdir -p '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libopus.la '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib'
+libtool: install: /usr/bin/install -c .libs/libopus.lai /workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/libopus.la
+libtool: install: /usr/bin/install -c .libs/libopus.a /workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/libopus.a
+libtool: install: chmod 644 /workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/libopus.a
+libtool: install: /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-ranlib /workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/libopus.a
+make[4]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[5]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+make[4]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2/doc'
+ /usr/bin/mkdir -p '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/share/aclocal'
+ /usr/bin/install -c -m 644 opus.m4 '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/share/aclocal'
+ /usr/bin/mkdir -p '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/pkgconfig'
+ /usr/bin/install -c -m 644 opus.pc '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/lib/pkgconfig'
+ /usr/bin/mkdir -p '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/include/opus'
+ /usr/bin/install -c -m 644 include/opus.h include/opus_multistream.h include/opus_types.h include/opus_defines.h include/opus_projection.h '/workspace/scratch/f1c6870582fb/runtime-build/windows/prefix/include/opus'
+make[3]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[2]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+make[1]: Leaving directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/opus-1.5.2'
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-w64-mingw32
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-w64-mingw32-strip... no
+checking for strip... strip
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for x86_64-w64-mingw32-gcc... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.exe
+checking for suffix of executables... .exe
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc accepts -g... yes
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc option to accept ISO C89... none needed
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc understands -c and -o together... yes
+checking dependency style of /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... gcc3
+checking how to run the C preprocessor... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for library containing strerror... none required
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld
+checking if the linker (/workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... no
+checking for x86_64-w64-mingw32-dumpbin... no
+checking for x86_64-w64-mingw32-link... no
+checking for dumpbin... no
+checking for link... link -dump
+configure: WARNING: using cross tools not prefixed with host triplet
+checking the name lister (nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-w64-mingw32 format... func_convert_file_nix_to_w32
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld option to reload object files... -r
+checking for x86_64-w64-mingw32-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for x86_64-w64-mingw32-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... func_cygming_dll_for_implib_fallback
+checking for x86_64-w64-mingw32-ar... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-ar
+checking for archiver @FILE support... @
+checking for x86_64-w64-mingw32-strip... strip
+checking for x86_64-w64-mingw32-ranlib... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-ranlib
+checking command to parse nm output from /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for x86_64-w64-mingw32-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... no
+checking for objdir... .libs
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -fno-rtti -fno-exceptions... no
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc static flag -static works... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -c -o file.o... yes
+checking if /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc supports -c -o file.o... (cached) yes
+checking whether the /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc linker (/workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for x86_64-w64-mingw32-gcc... (cached) /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc accepts -g... (cached) yes
+checking for /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc option to accept ISO C89... (cached) none needed
+checking whether /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc understands -c and -o together... (cached) yes
+checking dependency style of /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... (cached) gcc3
+checking compiler... gcc
+checking version of GCC... unknown compiler version pattern
+checking dmalloc.h usability... no
+checking dmalloc.h presence... no
+checking for dmalloc.h... no
+checking for ANSI C header files... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for stdint.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/soundcard.h usability... no
+checking sys/soundcard.h presence... no
+checking for sys/soundcard.h... no
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking linux/soundcard.h usability... no
+checking linux/soundcard.h presence... no
+checking for linux/soundcard.h... no
+checking working SSE intrinsics... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 4
+checking size of unsigned long... 4
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking for long double with more range or precision than double... yes
+checking for uint8_t... yes
+checking for int8_t... yes
+checking for uint16_t... yes
+checking for int16_t... yes
+checking for uint32_t... yes
+checking for int32_t... yes
+checking for uint64_t... yes
+checking for int64_t... yes
+checking for IEEE854 compliant 80 bit floats... configure: WARNING: can't check for IEEE854 compliant 80 bit floats
+
+checking for ieee754_float64_t... no
+checking for ieee754_float32_t... no
+configure: WARNING:
+  **************************************************************************
+  *                                                                        *
+  * You are cross compiling:                                               *
+  *   - I did not have a change to determine                               *
+  *     + the size of:                                                     *
+  *       - short                                                          *
+  *       - unsigned short                                                 *
+  *       - int                                                            *
+  *       - unsigned int                                                   *
+  *       - long                                                           *
+  *       - unsigned long                                                  *
+  *       - float                                                          *
+  *       - double                                                         *
+  *       - long double                                                    *
+  *     + the endianess of the system                                      *
+  *   - You have to provide appropriate defines for them in config.h, e.g. *
+  *     + define SIZEOF_SHORT to 2 if the size of a short is 2             *
+  *     + define WORDS_BIGENDIAN if your system is a big endian system     *
+  *                                                                        *
+  **************************************************************************
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for working alloca.h... no
+checking for alloca... yes
+checking for gettimeofday... yes
+checking for strtol... yes
+checking for socket... no
+checking for socket in -lsocket... no
+checking termcap.h usability... no
+checking termcap.h presence... no
+checking for termcap.h... no
+checking ncurses/termcap.h usability... no
+checking ncurses/termcap.h presence... no
+checking for ncurses/termcap.h... no
+checking for initscr in -ltermcap... no
+checking for initscr in -lcurses... no
+checking for initscr in -lncurses... no
+checking for ld used by /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc... /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld
+checking if the linker (/workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/x86_64-w64-mingw32/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for iconv... no, consider installing GNU libiconv
+checking for cos in -lm... yes
+checking for cos in -lffm... no
+checking for cos in -lcpml... no
+checking for gtk-config... no
+checking for GTK - version >= 1.2.0... no
+*** The gtk-config script installed by GTK could not be found
+*** If GTK was installed in PREFIX, make sure PREFIX/bin is in
+*** your path, or set the GTK_CONFIG environment variable to the
+*** full path to gtk-config.
+checking use of ElectricFence malloc debugging... no
+checking use of file io... lame
+checking use of analyzer hooks... yes
+checking use of mpg123 decoder... yes (Layer 1, 2, 3)
+checking if the lame frontend should be build... no
+checking if mp3x is requested... no
+checking if mp3rtp is requested... no
+checking if dynamic linking of the frontends is requested... no
+checking for termcap... no
+checking if I have to build the internal vector lib... yes
+checking for nasm... no
+checking for additional optimizations... no
+checking for debug options... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libmp3lame/Makefile
+config.status: creating libmp3lame/i386/Makefile
+config.status: creating libmp3lame/vector/Makefile
+config.status: creating frontend/Makefile
+config.status: creating mpglib/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/html/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating include/Makefile
+config.status: creating Dll/Makefile
+config.status: creating misc/Makefile
+config.status: creating dshow/Makefile
+config.status: creating ACM/Makefile
+config.status: creating ACM/ADbg/Makefile
+config.status: creating ACM/ddk/Makefile
+config.status: creating ACM/tinyxml/Makefile
+config.status: creating lame.spec
+config.status: creating mac/Makefile
+config.status: creating macosx/Makefile
+config.status: creating macosx/English.lproj/Makefile
+config.status: creating macosx/LAME.xcodeproj/Makefile
+config.status: creating vc_solution/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make  all-recursive
+make[1]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/lame-3.100'
+Making all in mpglib
+make[2]: Entering directory '/workspace/scratch/f1c6870582fb/runtime-build/windows/src/lame-3.100/mpglib'
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT common.lo -MD -MP -MF .deps/common.Tpo -c -o common.lo common.c
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT dct64_i386.lo -MD -MP -MF .deps/dct64_i386.Tpo -c -o dct64_i386.lo dct64_i386.c
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT decode_i386.lo -MD -MP -MF .deps/decode_i386.Tpo -c -o decode_i386.lo decode_i386.c
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT interface.lo -MD -MP -MF .deps/interface.Tpo -c -o interface.lo interface.c
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT interface.lo -MD -MP -MF .deps/interface.Tpo -c interface.c -o interface.o
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT decode_i386.lo -MD -MP -MF .deps/decode_i386.Tpo -c decode_i386.c -o decode_i386.o
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT common.lo -MD -MP -MF .deps/common.Tpo -c common.c -o common.o
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT dct64_i386.lo -MD -MP -MF .deps/dct64_i386.Tpo -c dct64_i386.c -o dct64_i386.o
+mv -f .deps/common.Tpo .deps/common.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT layer1.lo -MD -MP -MF .deps/layer1.Tpo -c -o layer1.lo layer1.c
+mv -f .deps/dct64_i386.Tpo .deps/dct64_i386.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT layer2.lo -MD -MP -MF .deps/layer2.Tpo -c -o layer2.lo layer2.c
+mv -f .deps/decode_i386.Tpo .deps/decode_i386.Plo
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT layer1.lo -MD -MP -MF .deps/layer1.Tpo -c layer1.c -o layer1.o
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT layer3.lo -MD -MP -MF .deps/layer3.Tpo -c -o layer3.lo layer3.c
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT layer2.lo -MD -MP -MF .deps/layer2.Tpo -c layer2.c -o layer2.o
+libtool: compile:  /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I. -I../libmp3lame -I.. -O2 -MT layer3.lo -MD -MP -MF .deps/layer3.Tpo -c layer3.c -o layer3.o
+mv -f .deps/layer1.Tpo .deps/layer1.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile /workspace/scratch/f1c6870582fb/runtime-build/compiler/usr/bin/x86_64-w64-mingw32-gcc -DHAVE_CONFIG_H  -I. -I.. -I../include -I. -I../libmp3lame -I..    -O2 -MT tabinit.lo -MD -MP -MF .deps/tabinit.Tpo -c -o tabinit.lo tabinit.c

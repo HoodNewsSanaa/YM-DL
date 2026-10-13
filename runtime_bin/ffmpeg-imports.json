@@ -1,0 +1,9 @@
+[
+  "CRYPT32.dll",
+  "KERNEL32.dll",
+  "msvcrt.dll",
+  "ncrypt.dll",
+  "Secur32.dll",
+  "SHELL32.dll",
+  "WS2_32.dll"
+]

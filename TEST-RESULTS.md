@@ -4,7 +4,7 @@ Development environment: Linux x86-64, Python 3.12.14, Qt/PySide6 6.12.0, yt-dlp
 
 ## Automated checks
 
-`python -m pytest -q`: **131 passed**, exit status 0.
+`python -m pytest -q`: **136 passed**, exit status 0.
 
 The tests cover:
 
@@ -56,12 +56,12 @@ A Linux PyInstaller directory build using the same application imports, package 
   "ffmpeg": "available",
   "worker_spawn": "ok",
   "app": "YM-DL",
-  "version": "0.4.0-beta.1",
+  "version": "0.4.0-beta.2",
   "assets": "ok"
 }
 ```
 
-The Windows build script produces a one-file executable and runs this self-check automatically with its bundled Deno runtime. **The Windows executable has not been built or run in this Linux development environment.**
+The Windows build script produces a one-file executable and runs this self-check automatically with its bundled Node.js runtime. **The Windows executable has not been built or run in this Linux development environment.**
 
 ## Earlier live service checks
 
@@ -70,3 +70,17 @@ The Windows build script produces a one-file executable and runs this self-check
 - The stream inspection needed the development environment's system certificate trust (`no-certifi` compatibility option) because its default Certifi trust failed for the network certificate chain. Certificate verification remained enabled. This diagnostic option is not hardcoded into the app.
 
 No live song was downloaded in these checks. Real Windows downloads, exported-cookie authentication, authenticated/Premium streams and region/age-restricted content still need testing on the target PC. Album previews do not support private playlists in this version.
+
+## Beta 2 release packaging verification
+
+- The original 131 regression checks and five new release-packaging checks pass (136 total).
+- Corrupted downloads are rejected without replacing cached inputs; valid caches avoid another download.
+- Release archives preserve notices and source artifacts while excluding cookies and private root files.
+- Frozen inventory omits local account paths and rejects uncovered Qt modules and optional OpenGL renderer additions.
+- Bundled Node takes priority over unrelated Deno installations on PATH.
+- The Windows x86-64 FFmpeg 9.0.2 binary was compiled from unmodified, included FFmpeg/Opus/LAME source. Its import table requires only Windows system DLLs. Exact compiler packages, source digests, recipe, configuration and transcript are retained.
+- Both source-mode and one-file Linux frozen self-checks passed with Node 24.21.0 and the equivalent locally compiled FFmpeg. The worker generated audio, converted it to Opus/AAC/MP3/FLAC/WAV and remuxed every result.
+- Full release/source ZIP generation was exercised on the Linux frozen test payload with real installed package licenses, Qt sources/attributions and runtime notices. This is a packaging dry run, not a Windows GUI executable.
+- Qt attribution license references resolved successfully (83 files; no missing references). Qt/PySide SPDX license texts are included.
+
+The complete Windows GUI executable still needs its on-Windows build/self-check and live download test. The builder performs the offline checks automatically before creating the three release assets.

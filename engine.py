@@ -14,7 +14,6 @@ import tempfile
 import time
 from pathlib import Path
 
-import imageio_ffmpeg
 import mutagen
 import yt_dlp
 
@@ -27,18 +26,34 @@ from quality import source_quality, source_text
 
 def runtime_path():
     base = Path(getattr(sys, "_MEIPASS", Path(__file__).parent))
-    for name in ("deno", "node"):
+    # A verified bundled runtime takes precedence over unrelated PATH installs.
+    for name in ("node", "deno"):
         bundled = base / "tools" / (name + (".exe" if os.name == "nt" else ""))
-        candidate = str(bundled) if bundled.exists() else shutil.which(name)
+        if bundled.is_file():
+            return name, str(bundled)
+    for name in ("deno", "node"):
+        candidate = shutil.which(name)
         if candidate:
             return name, candidate
-    raise RuntimeError("A JavaScript runtime is required for YouTube. Install Deno or use the bundled Windows build.")
+    raise RuntimeError("A JavaScript runtime is required for YouTube. Install Node.js LTS or Deno, or use the bundled Windows build.")
 
 
 def ffmpeg_path():
     base = Path(getattr(sys, "_MEIPASS", Path(__file__).parent))
     bundled = base / "tools" / ("ffmpeg.exe" if os.name == "nt" else "ffmpeg")
-    return str(bundled) if bundled.exists() else imageio_ffmpeg.get_ffmpeg_exe()
+    if bundled.is_file():
+        return str(bundled)
+    candidate = shutil.which("ffmpeg")
+    if candidate:
+        return candidate
+    if not getattr(sys, "frozen", False):
+        # Optional convenience for developers; excluded from the release exe.
+        try:
+            import imageio_ffmpeg
+            return imageio_ffmpeg.get_ffmpeg_exe()
+        except ImportError:
+            pass
+    raise RuntimeError("FFmpeg is missing. Use the bundled Windows build or install FFmpeg for source-mode downloads.")
 
 
 def stream_copy(raw: Path, destination: Path, executable: str):

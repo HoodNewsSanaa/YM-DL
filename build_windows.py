@@ -1,63 +1,62 @@
-"""Build a portable Windows app on Windows; no FFmpeg/runtime install needed afterward."""
+"""Build the portable Windows app and its notices/source release assets."""
 from __future__ import annotations
-
-import hashlib
 import json
+import platform
 import shutil
 import subprocess
 import sys
-import tempfile
-import zipfile
 from pathlib import Path
-
-import imageio_ffmpeg
-import requests
+from branding import VERSION
+from release_packaging import (NODE_VERSION, ensure_sources, package_release, prepare_node,
+                               sha256, verify_environment, verify_materials)
 
 
 def main():
-    if sys.platform != "win32":
-        raise SystemExit("Run this build on Windows. PyInstaller cannot cross-compile a Windows executable on Linux.")
+    if sys.platform != "win32" or platform.machine().lower() not in {"amd64", "x86_64"}:
+        raise SystemExit("Run Build-Windows.cmd with 64-bit Python on Windows. PyInstaller cannot cross-compile the GUI executable.")
     root = Path(__file__).resolve().parent
-    tools = root / "tools"
-    tools.mkdir(exist_ok=True)
-    deno = tools / "deno.exe"
-    if not deno.is_file():
-        print("Downloading the official Deno runtime…", flush=True)
-        url = "https://github.com/denoland/deno/releases/latest/download/deno-x86_64-pc-windows-msvc.zip"
-        with requests.get(url, stream=True, timeout=(15, 180)) as response:
-            response.raise_for_status()
-            with tempfile.TemporaryFile() as archive:
-                for chunk in response.iter_content(1024 * 1024):
-                    archive.write(chunk)
-                archive.seek(0)
-                with zipfile.ZipFile(archive) as package:
-                    # Extract only the intended executable, never arbitrary archive paths.
-                    deno.write_bytes(package.read("deno.exe"))
-    deno_version = subprocess.check_output([str(deno), "--version"], text=True).strip()
-    ffmpeg = Path(imageio_ffmpeg.get_ffmpeg_exe())
-    subprocess.run([str(ffmpeg), "-version"], check=True, capture_output=True)
+    verify_environment(root)
+    verify_materials(root)
+    print("Preparing verified source archives and license material…", flush=True)
+    ensure_sources(root)
+    print(f"Preparing official Node.js {NODE_VERSION}…", flush=True)
+    node = prepare_node(root)
+    ffmpeg = root / "tools/ffmpeg.exe"
+    shutil.copyfile(root / "runtime_bin/ffmpeg.exe", ffmpeg)
+    node_version = subprocess.check_output([str(node), "--version"], text=True).strip()
+    if node_version != f"v{NODE_VERSION}":
+        raise RuntimeError("Unexpected Node runtime version.")
+    ffmpeg_version = subprocess.check_output([str(ffmpeg), "-version"], text=True)
+    ffmpeg_license = subprocess.check_output([str(ffmpeg), "-L"], text=True, stderr=subprocess.STDOUT)
     command = [sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onefile", "--windowed",
-               "--name", "YM-DL", "--collect-all", "yt_dlp", "--collect-all", "yt_dlp_ejs",
+               "--name", "YM-DL", "--additional-hooks-dir", str(root / "hooks"),
+               "--exclude-module", "imageio_ffmpeg", "--exclude-module", "release_packaging",
+               "--collect-all", "yt_dlp", "--collect-all", "yt_dlp_ejs",
                "--collect-data", "ytmusicapi", "--collect-data", "certifi",
                "--collect-submodules", "mutagen", "--copy-metadata", "yt-dlp-ejs",
-               "--copy-metadata", "yt-dlp", "--add-binary", f"{deno};tools",
-               "--icon", str(root / "assets" / "ym-dl.ico"),
-               "--add-data", f"{root / 'assets'};assets",
+               "--copy-metadata", "yt-dlp", "--add-binary", f"{node};tools",
+               "--icon", str(root / "assets/ym-dl.ico"), "--add-data", f"{root / 'assets'};assets",
                "--add-binary", f"{ffmpeg};tools", "app.py"]
-    # FFmpeg is stored under imageio's versioned name; ship the stable name expected at runtime.
-    stable_ffmpeg = tools / "ffmpeg.exe"
-    shutil.copyfile(ffmpeg, stable_ffmpeg)
-    command[command.index(f"{ffmpeg};tools")] = f"{stable_ffmpeg};tools"
     subprocess.run(command, cwd=root, check=True)
-    output = root / "dist" / "YM-DL.exe"
-    print("Checking the packaged interface, worker, FFmpeg and JavaScript runtime…", flush=True)
-    subprocess.run([str(output), "--self-check", str(output.parent / "self-check.json")], check=True, timeout=90)
-    record = {"deno": deno_version, "deno_sha256": hashlib.sha256(deno.read_bytes()).hexdigest(),
-              "executable_sha256": hashlib.sha256(output.read_bytes()).hexdigest()}
-    (root / "dist" / "build-info.json").write_text(json.dumps(record, indent=2), encoding="utf-8")
-    with (root / "dist" / "dependencies.txt").open("w", encoding="utf-8") as handle:
-        subprocess.run([sys.executable, "-m", "pip", "freeze"], cwd=root, check=True, stdout=handle)
-    print(f"\nBuilt: {output}\nYou can launch or move YM-DL.exe by itself.")
+    output = root / "dist/YM-DL.exe"
+    print("Checking the packaged interface, codecs, worker and runtimes…", flush=True)
+    subprocess.run([str(output), "--self-check", str(output.parent / "self-check.json")], check=True, timeout=120)
+    self_check = json.loads((output.parent / "self-check.json").read_text())
+    if self_check.get("runtime") != "node" or self_check.get("version") != VERSION:
+        raise RuntimeError("Frozen self-check does not match this release's runtime/version.")
+    record = {"app_version": VERSION, "python": sys.version, "platform": platform.platform(),
+              "node": node_version, "node_sha256": sha256(node), "ffmpeg": ffmpeg_version,
+              "ffmpeg_license": ffmpeg_license, "ffmpeg_sha256": sha256(ffmpeg),
+              "ffmpeg_build": json.loads((root / "runtime_bin/ffmpeg-build.json").read_text()),
+              "executable_sha256": sha256(output), "self_check": self_check}
+    (output.parent / "build-info.json").write_text(json.dumps(record, indent=2), encoding="utf-8")
+    with (output.parent / "dependencies.txt").open("w", encoding="utf-8") as stream:
+        subprocess.run([sys.executable, "-m", "pip", "freeze"], check=True, stdout=stream)
+    print("Creating the Windows download ZIP, full source ZIP and checksums…", flush=True)
+    paths = package_release(root, output, record, root / "build/YM-DL/Analysis-00.toc", VERSION)
+    print("\nBuild and checks passed. Upload these three files to the GitHub release:", flush=True)
+    for path in paths:
+        print(path)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,4 @@
+-r requirements.txt
+imageio-ffmpeg==0.6.0
+pytest>=8,<10
+pyinstaller==6.22.3
