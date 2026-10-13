@@ -1,0 +1,38 @@
+# Python and packaging output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+tools/
+*.spec
+*.egg-info/
+
+# Private account/session data and local diagnostics
+.env
+.env.*
+*cookies*.txt
+*cookies*.json
+browser.json
+oauth.json
+*.log
+*self-check*.json
+
+# Downloaded media and temporary download records
+*.opus
+*.m4a
+*.mp3
+*.flac
+*.wav
+*.ogg
+*.webm
+*.part
+.ym-dl-work/
+.ym-dl-history.json
+cover.jpg
+
+# OS files
+Thumbs.db
+.DS_Store
